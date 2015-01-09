@@ -1,0 +1,25 @@
+{
+  "name": "relay-race",
+  "version": "0.1.0",
+  "description": "Serial execution of tasks with a shared namespace",
+  "keywords": [
+    "series",
+    "tasks",
+    "shared"
+  ],
+  "author": "Gabriel Llamas <gagle@outlook.com>",
+  "repository": "git://github.com/gagle/node-relay-race.git",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "devDependencies": {
+    "code": "^1.2.1",
+    "lab": "^5.1.1",
+    "sinon": "^1.12.2"
+  },
+  "scripts": {
+    "test": "node node_modules/lab/bin/lab -t 100"
+  },
+  "license": "MIT",
+  "main": "lib"
+}
