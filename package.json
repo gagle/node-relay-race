@@ -1,6 +1,6 @@
 {
   "name": "relay-race",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Serial execution of tasks with a shared namespace",
   "keywords": [
     "series",
@@ -18,7 +18,8 @@
     "sinon": "^1.12.2"
   },
   "scripts": {
-    "test": "node node_modules/lab/bin/lab -t 100"
+    "test": "node node_modules/lab/bin/lab -t 100",
+    "test-lcov": "node node_modules/lab/bin/lab -t 100 -r lcov"
   },
   "license": "MIT",
   "main": "lib"
