@@ -10,7 +10,7 @@ var it = lab.it;
 
 var race = require('../lib');
 
-describe('race', function () {
+describe('relay-race', function () {
   it('calls tasks in serial', function (done) {
     var runners = [
       function (baton, next) {
