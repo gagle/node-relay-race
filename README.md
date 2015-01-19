@@ -32,14 +32,33 @@ race.start(runners, function (err, baton) {
 });
 ```
 
-Where could you use it? To boot the server up, this was the main purpose to create this library. When starting the web server up you tipically need to do a bunch of things before configuring the web framework of your choice. These tasks need to be executed in series but the result of them may be used in one or more tasks. This library it's just an `async.series()` but with a built-in shared namespace where you can store things.
+Where could you use it? To boot the server up, this was the main purpose to create this library. When starting the web server up you tipically need to do a bunch of things before configuring the web framework of your choice. These tasks need to be executed in serial but the result of them may be used in one or more tasks. This library it's just an `async.series()` but with a built-in shared namespace where you can store things.
 
 Take a look to the examples to see how you could modularize the booting.
 
-___module_.start(runners, callback) : undefined__  
+___module_.start(runners[, baton], callback) : undefined__  
 Executes all tasks in series.
 
 `runners` is an array of functions to run in series. Each function has the signature `function(baton, next)`, where `baton` is the shared object and `next()` the function to call to execute the next function. As usual, pass an error to `next()` to abort the execution of the tasks. This is the error returned by the `start()` function.
+
+A `baton` can be passed from outside. Use the second parameter to initialize the baton with data.
+
+```javascript
+var runners = [
+  function (baton, next) {
+    baton.b = 2;
+    next();
+  },
+  function (baton, next) {
+    baton.c = 3;
+    next();
+  }
+];
+
+race.start(runners, { a: 1 }, function (err, baton) {
+  // baton { a: 1, b: 2, c: 3 }
+});
+```
 
 [npm-version-image]: https://img.shields.io/npm/v/relay-race.svg?style=flat
 [npm-url]: https://npmjs.org/package/relay-race

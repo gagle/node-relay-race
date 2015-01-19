@@ -53,6 +53,32 @@ describe('relay-race', function () {
     });
   });
 
+  it('can receive a baton from the outside', function (done) {
+    var runners = [
+      function (baton, next) {
+        expect(baton).to.only.deep.include({
+          c: 3
+        });
+        baton.a = 1;
+        next();
+      },
+      function (baton, next) {
+        baton.b = 2;
+        next();
+      }
+    ];
+
+    race.start(runners, { c: 3 }, function (err, baton) {
+      expect(err).to.not.exist();
+      expect(baton).to.only.deep.include({
+        a: 1,
+        b: 2,
+        c: 3
+      });
+      done();
+    });
+  });
+
   it('aborts with error', function (done) {
     var errInstance = new Error();
     var spy = sinon.spy(function (baton, next) {
