@@ -9,7 +9,7 @@ relay-race
 
 The extremly well-known serial execution of tasks, but with a baton, a shared object to pass data among tasks. It's like a relay race, runners (tasks) passing data (baton) between them. Each task reading and writing to the shared object.
 
-It's very useful when you need to call a series of functions and store the data in a common place to be read by other tasks, not only the following one.
+It's very useful when you need to call a series of functions in serial and store the data in a common place to be read by other tasks, not only the following one.
 
 ```javascript
 var runners = [
@@ -36,7 +36,9 @@ Where could you use it? For example, to boot the server up, this was the main pu
 
 Take a look to the examples to see how you could modularize the booting.
 
-In fact, it can be used to simplify this:
+You could also perform queries to the database in serial and use their result in any order. For example, you need to execute 3 queries. The seconds depends on the first and the third depends on the first and the second. They need to be executed in serial but the third needs the result of the first.
+
+It can be used to simplify this:
 
 ```javascript
 var obj = {};
