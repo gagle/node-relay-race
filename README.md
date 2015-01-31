@@ -7,7 +7,7 @@ relay-race
 [![Travis][travis-image]][travis-url]
 [![Coveralls][coveralls-image]][coveralls-url]
 
-The extremly well-known serial execution of tasks, but with a baton, a shared object to pass data among tasks. It's like a relay race, runners (tasks) passing data (baton) between them. Each task reading and writing to the shared object.
+The extremly well-known serial execution of tasks, but with a baton, a shared object to pass data among tasks. It's like a relay race, runners (tasks) passing the baton (data) between them. Each task reading and writing to the shared object.
 
 It's very useful when you need to call a series of functions in series and store the data in a common place to be read by other tasks, not only the following one.
 
