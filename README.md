@@ -69,7 +69,8 @@ race.start([
 ], function (err, baton){});
 ```
 
-___module_.start(runners[, baton], callback) : undefined__  
+___module_.start(runners[, baton], callback) : undefined__
+
 Executes all tasks in series.
 
 `runners` is an array of functions to run in series. Each function has the signature `function(baton, next)`, where `baton` is the shared object and `next` the function to call to execute the next function. As usual, pass an error to `next()` to abort the execution of the tasks. This is the error returned by the `start()` function.
