@@ -11,7 +11,7 @@ var it = lab.it;
 var race = require('../lib');
 
 describe('relay-race', function () {
-  it('calls tasks in serial', function (done) {
+  it('calls tasks in series', function (done) {
     var runners = [
       function (baton, next) {
         expect(baton).to.deep.equal({});
