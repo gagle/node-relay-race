@@ -1,6 +1,6 @@
 {
   "name": "relay-race",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Serial execution of tasks with a shared namespace",
   "keywords": [
     "series",
@@ -13,9 +13,9 @@
     "node": ">=0.10"
   },
   "devDependencies": {
-    "code": "^1.3.0",
-    "lab": "^5.2.1",
-    "sinon": "^1.12.2"
+    "code": "^1.4.0",
+    "lab": "^5.5.1",
+    "sinon": "^1.14.1"
   },
   "scripts": {
     "test": "lab -t 100",

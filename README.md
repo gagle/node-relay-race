@@ -69,7 +69,7 @@ race.start([
 ], function (err, baton){});
 ```
 
-___module_.start(runners[, baton], callback) : undefined__
+___module_.start(runners[, baton][, callback]) : undefined__
 
 Executes all tasks in series.
 

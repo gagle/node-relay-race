@@ -79,6 +79,17 @@ describe('relay-race', function () {
     });
   });
 
+  it('callback may be optional', function (done) {
+    var runners = [
+      function (baton, next) {
+        next();
+      }
+    ];
+
+    race.start(runners);
+    done();
+  });
+
   it('aborts with error', function (done) {
     var errInstance = new Error();
     var spy = sinon.spy(function (baton, next) {
